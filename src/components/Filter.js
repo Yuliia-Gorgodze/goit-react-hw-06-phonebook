@@ -5,7 +5,6 @@ import filterActions from '../redux/filter/filter-actions';
 import styles from './styles.module.css';
 
 const Filter = ({ value, onChange }) => {
-  // console.log(value);
   return (
     <label className={styles.input}>
       Кого ищем?{' '}
