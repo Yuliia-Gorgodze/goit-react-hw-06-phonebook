@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import itemsActions from '../redux/items/items-actions';
+import contactsActions from '../redux/contacts/contacts-actions';
 import styles from './styles.module.css';
 
 const ContactList = ({ contacts, deleteCantact }) => {
@@ -20,18 +20,18 @@ const ContactList = ({ contacts, deleteCantact }) => {
     </div>
   );
 };
-const getVisibleContact = (items, filter) => {
+const getVisibleContact = ({ contacts, filter }) => {
   const normalizedFilter = filter.toLowerCase();
-  return items.filter(contact =>
+  return contacts.filter(contact =>
     contact.name.toLowerCase().includes(normalizedFilter),
   );
 };
 
-const mapStateToProps = ({ contacts: { items, filter } }) => ({
-  contacts: getVisibleContact(items, filter),
+const mapStateToProps = state => ({
+  contacts: getVisibleContact(state),
 });
 const mapDispatchToProps = dispatch => ({
-  deleteCantact: id => dispatch(itemsActions.deleteContact(id)),
+  deleteCantact: id => dispatch(contactsActions.deleteContact(id)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
 

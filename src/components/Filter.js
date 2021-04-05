@@ -20,7 +20,7 @@ const Filter = ({ value, onChange }) => {
 };
 
 const mapStateToProps = state => ({
-  value: state.contacts.filter,
+  value: state.filter,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -29,6 +29,6 @@ const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
 
 Filter.propTypes = {
-  state: propTypes.string.isRequired,
-  inputChange: propTypes.func.isRequired,
+  state: propTypes.string,
+  inputChange: propTypes.func,
 };

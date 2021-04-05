@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import shortid from 'shortid';
 import { connect } from 'react-redux';
-import itemsActions from '../redux/items/items-actions';
+import contactsActions from '../redux/contacts/contacts-actions';
 import styles from './styles.module.css';
 class AddNameContact extends Component {
   state = {
@@ -64,10 +64,10 @@ class AddNameContact extends Component {
   }
 }
 const mapStateToProps = state => ({
-  contacts: state.contacts.items,
+  contacts: state.contacts,
 });
 const mapDispatchToProps = dispatch => ({
-  onSabmit: contact => dispatch(itemsActions.addContact(contact)),
+  onSabmit: contact => dispatch(contactsActions.addContact(contact)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(AddNameContact);
 
